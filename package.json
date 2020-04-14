@@ -1,0 +1,28 @@
+{
+  "name": "finance-yahoo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./index.js",
+    "ui": "browser-sync start --proxy=localhost:8000 --files='**/*.css, **/*.pug, **/*.js' --ignore=node_modules --reload-delay 10 --no-ui --no-notify"
+  },
+  "author": "Benjamin",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "express": "^4.17.1",
+    "google-finance": "^0.1.12",
+    "lodash": "^4.17.15",
+    "pug": "^2.0.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.5",
+    "util": "^0.12.2",
+    "yahoo-finance": "^0.3.6"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.26.7",
+    "nodemon": "^2.0.3"
+  },
+  "description": ""
+}
