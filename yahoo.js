@@ -1,13 +1,13 @@
 var yahooFinance = require('yahoo-finance');
 var watchlist = require('./data/watchlist.json')
 
-getYahooQuote(watchlist[1].stock)
+// getYahooQuote(watchlist[1].stock)
 
-watchlist.forEach(element => {
+// watchlist.forEach(element => {
   // console.log(element.stock)
   // getHistory(element.stock)
   // getYahooQuote(element.stock)
-});
+// });
 
 
 
@@ -33,6 +33,30 @@ yahooFinance.quote({
   // ...
 });
 }
+
+function fixData(a,b){
+  console.log('a', a);
+  console.log('b', b);
+var c = a;
+  return c;
+}
+
+function getData(quote, cb){
+  yahooFinance.quote({
+    symbol:quote,
+    modules: [ 'price', 'summaryDetail' ]
+  },function(err, quotes){
+    cb(fixData())
+  })
+}
+
+var quotes = watchlist.map((quote)=>{
+  return new Promise((resolve)=>{
+    getData(quote, resolve);
+  })
+})
+
+exports.quotes = quotes;
 
 
 // yahooFinance.historical({

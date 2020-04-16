@@ -4,9 +4,16 @@
  * Required External Modules
  */
 
+const connection = require('./db-connect.js');
 const express = require("express");
 const path = require("path");
+const schema = require('./schema');
+// const yahoo = require('./yahoo');
+console.log(connection);
 
+
+
+// connection.doSomething();
 /**
  * App Variables
  */
@@ -28,6 +35,9 @@ app.use(express.static(path.join(__dirname, "public")));
  */
 
 app.get("/", (req, res) => {
+  // Promise.all(yahoo.quotes).then((quote)=>{
+  //   console.log(quote);
+  // })
     res.render("index", { title: "Home" });
   });
 
